@@ -26,12 +26,12 @@ proxy.use('/api/rooms/1', (req, res) => {
 //     }
 //   })
 // })
-// proxy.use('/api/amenities', (req, res) => {
-//   request('http://localhost:3012/api/amenities', (error, response, body) => {
-//     if(response.statusCode === 200) {
-//       res.status(200).send(body);
-//     }
-//   })
-// })
+proxy.use('/api/amenities', (req, res) => {
+  request('http://ec2-54-67-109-7.us-west-1.compute.amazonaws.com:8585//api/amenities', (error, response, body) => {
+    if(response.statusCode === 200) {
+      res.status(200).send(body);
+    }
+  })
+})
 
 proxy.listen(port, () => console.log('Connected on port ' + port + ' ^____^b'));
